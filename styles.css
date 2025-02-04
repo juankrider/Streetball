@@ -1,0 +1,146 @@
+/* Estilos generales */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    background-color: #b1ada4;
+    font-family: Arial, sans-serif;
+    text-align: left;
+    margin: 0;
+    padding-left: 5vw;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    position: relative;
+}
+
+/* Título principal */
+.title {
+    font-size: 15vw; /* Tamaño responsive */
+    font-weight: bold;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+/* Opciones (5vs5 y 7vs7) */
+.option {
+    font-size: 12vw; /* Tamaño responsive */
+    font-weight: bold;
+    text-decoration: none;
+    display: block;
+    transition: all 0.3s ease, font-size 0.3s ease;
+}
+
+.five, .seven {
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.five:hover, body.five-hover .five {
+    color: #444;
+    font-size: 14vw; /* Tamaño responsive al hacer hover */
+}
+
+.seven:hover, body.seven-hover .seven {
+    color: white;
+    font-size: 14vw; /* Tamaño responsive al hacer hover */
+}
+
+.five:hover ~ .title, body.five-hover .title,
+.five:hover ~ .seven, body.five-hover .seven {
+    color: #444;
+}
+
+.seven:hover ~ .title, body.seven-hover .title,
+.seven:hover ~ .five, body.seven-hover .five {
+    color: white;
+}
+
+/* Cambios de fondo al hacer hover */
+body.five-hover {
+    background-color: white;
+}
+
+body.seven-hover {
+    background-color: black;
+}
+
+/* Logo */
+.logo {
+    position: absolute;
+    top: 20px; /* Más espacio arriba */
+    right: 20px; /* Más espacio a la derecha */
+    width: 80px; /* Tamaño normal */
+    height: auto; /* Mantiene la proporción */
+    transition: transform 0.3s ease; /* Animación suave */
+}
+
+.logo:hover {
+    transform: scale(1.1); /* Aumenta el tamaño un 10% */
+}
+
+/* Menú desplegable */
+.menu {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.menu-icon {
+    font-size: 30px; /* Tamaño fijo */
+    cursor: pointer;
+    color: white;
+}
+
+.menu-content {
+    display: none;
+    position: absolute;
+    bottom: 40px;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.menu-content a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 5px 0;
+    font-size: 16px; /* Tamaño fijo */
+}
+
+.menu:hover .menu-content {
+    display: block;
+}
+
+/* Media queries para ajustes en pantallas más pequeñas */
+@media (max-width: 768px) {
+    .title {
+        font-size: 20vw; /* Tamaño más grande en móviles */
+    }
+
+    .option {
+        font-size: 16vw; /* Tamaño más grande en móviles */
+    }
+
+    .five:hover, body.five-hover .five,
+    .seven:hover, body.seven-hover .seven {
+        font-size: 18vw; /* Tamaño más grande en móviles al hacer hover */
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 25vw; /* Tamaño aún más grande en pantallas muy pequeñas */
+    }
+
+    .option {
+        font-size: 20vw; /* Tamaño aún más grande en pantallas muy pequeñas */
+    }
+
+    .five:hover, body.five-hover .five,
+    .seven:hover, body.seven-hover .seven {
+        font-size: 22vw; /* Tamaño aún más grande en pantallas muy pequeñas al hacer hover */
+    }
+}
