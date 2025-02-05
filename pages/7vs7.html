@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7vs7 - StreetBall</title>
+    <link rel="stylesheet" href="../css/styles.css"> <!-- Enlace al CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Íconos -->
+    <style>
+        /* Estilos generales */
+        body {
+            background-image: url("../images/fondo2.jpg"); /* Ruta de la imagen */
+            background-size: cover; /* Asegura que la imagen cubra todo el fondo */
+            background-position: center; /* Centra la imagen en el fondo */
+            background-repeat: no-repeat; /* Evita que la imagen se repita */
+            font-family: 'Arial', sans-serif; /* Misma tipografía que la portada */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro con opacidad del 50% */
+            transition: background-color 0.3s ease; /* Para transición de la opacidad */
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch; /* Asegura que los paneles tengan la misma altura */
+            width: 85%; /* Ocupa el 85% del ancho de la pantalla */
+            height: 80vh; /* Ocupa el 80% de la altura de la pantalla */
+            max-width: 1400px; /* Ancho máximo para pantallas grandes */
+            margin: 0 auto;
+        }
+
+        .panel {
+            width: 48%; /* Cada panel ocupa el 48% del contenedor */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .panel:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .left-panel {
+            background-color: #ffffff; /* Fondo blanco */
+            color: #1d1d1f;
+        }
+
+        .right-panel {
+            background-color: #000000; /* Fondo negro */
+            color: #f5f5f7;
+        }
+
+        .panel h2 {
+            font-size: 3rem; /* Tamaño más grande para el título */
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            width: 80%;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: inherit;
+            font-size: 1.2rem; /* Tamaño más grande para las etiquetas */
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-size: 1.2rem; /* Tamaño más grande para el texto */
+            background-color: transparent;
+            color: inherit;
+        }
+
+        .form-group button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff; /* Azul vibrante */
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.2rem; /* Tamaño más grande para el texto */
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .form-group button:hover {
+            background-color: #0056b3; /* Azul más oscuro al hacer hover */
+            transform: scale(1.05); /* Efecto de escala al hacer hover */
+        }
+
+        .player-list {
+            list-style: none;
+            padding: 0;
+            width: 80%;
+            max-height: 40vh;
+            overflow-y: auto;
+        }
+
+        .player-list li {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.2rem; /* Tamaño más grande para el texto */
+            color: inherit;
+        }
+
+        .player-list li:last-child {
+            border-bottom: none;
+        }
+
+        .player-list .actions {
+            display: flex;
+            gap: 10px; /* Espacio entre íconos */
+        }
+
+        .player-list .actions i {
+            cursor: pointer;
+            font-size: 1.5rem; /* Tamaño más grande para los íconos */
+            transition: color 0.3s ease;
+        }
+
+        .player-list .actions .fa-pencil {
+            color: #007bff; /* Azul para editar */
+        }
+
+        .player-list .actions .fa-pencil:hover {
+            color: #0056b3; /* Azul más oscuro al hacer hover */
+        }
+
+        .player-list .actions .fa-times {
+            color: #dc3545; /* Rojo para eliminar */
+        }
+
+        .player-list .actions .fa-times:hover {
+            color: #c82333; /* Rojo más oscuro al hacer hover */
+        }
+
+        .generate-teams {
+            margin-top: 20px;
+            text-align: center;
+            width: 80%;
+        }
+
+        .generate-teams button {
+            padding: 12px 24px;
+            background-color: #28a745; /* Verde vibrante */
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.2rem; /* Tamaño más grande para el texto */
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .generate-teams button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        .generate-teams button:hover:not(:disabled) {
+            background-color: #218838; /* Verde más oscuro al hacer hover */
+            transform: scale(1.05); /* Efecto de escala al hacer hover */
+        }
+
+        /* Push-up para mostrar los equipos */
+        .push-up {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60%; /* Ocupa el 60% de la pantalla */
+            max-width: 800px;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            z-index: 1000;
+            display: none; /* Oculto por defecto */
+        }
+
+        .push-up h3 {
+            text-align: center;
+            font-size: 2rem; /* Tamaño más grande para el título */
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .push-up .teams-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .push-up .team {
+            width: 48%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .push-up .team ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .push-up .team li {
+            padding: 5px;
+            border-bottom: 1px solid #ccc;
+            font-size: 1.2rem; /* Tamaño más grande para el texto */
+        }
+
+        .push-up .team li:last-child {
+            border-bottom: none;
+        }
+
+        .push-up .share-button {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .push-up .share-button button {
+            padding: 12px 24px;
+            background-color: #007bff; /* Azul vibrante */
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.2rem; /* Tamaño más grande para el texto */
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .push-up .share-button button:hover {
+            background-color: #0056b3; /* Azul más oscuro al hacer hover */
+            transform: scale(1.05); /* Efecto de escala al hacer hover */
+        }
+
+        /* Pop-up para compartir */
+        .share-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60%; /* Ocupa el 60% de la pantalla */
+            max-width: 800px;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            z-index: 1001;
+            display: none; /* Oculto por defecto */
+        }
+
+        .share-popup h3 {
+            text-align: center;
+            font-size: 2rem; /* Tamaño más grande para el título */
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .share-popup .share-content {
+            max-height: 50vh;
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+
+        .share-popup .close-button {
+            text-align: center;
+        }
+
+        .share-popup .close-button button {
+            padding: 12px 24px;
+            background-color: #dc3545; /* Rojo para cerrar */
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.2rem; /* Tamaño más grande para el texto */
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .share-popup .close-button button:hover {
+            background-color: #c82333; /* Rojo más oscuro al hacer hover */
+            transform: scale(1.05); /* Efecto de escala al hacer hover */
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+            z-index: 999;
+            display: none; /* Oculto por defecto */
+        }
+
+        /* Logo y menú siempre visibles */
+        .logo, .menu {
+            position: fixed;
+            z-index: 1002; /* Encima de todo */
+        }
+
+        .logo {
+            top: 20px;
+            right: 20px;
+            width: 80px;
+            height: auto;
+        }
+
+        .menu {
+            bottom: 20px;
+            right: 20px;
+        }
+
+        .menu-icon {
+            font-size: 30px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .menu-content {
+            display: none;
+            position: absolute;
+            bottom: 40px;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .menu-content a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 5px 0;
+        }
+
+        .menu:hover .menu-content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Logo con enlace a inicio -->
+    <a href="../Index.html">
+        <img src="../images/logo.png" alt="StreetBall Logo" class="logo">
+    </a>
+
+    <!-- Menú desplegable -->
+    <div class="menu">
+        <div class="menu-icon">☰</div>
+        <div class="menu-content">
+            <a href="../Index.html">Inicio</a>
+            <a href="5vs5.html">5vs5</a>
+            <a href="7vs7.html">7vs7</a>
+            <a href="descargar.html">Descargar</a>
+            <a href="contacto.html">Contacto</a>
+        </div>
+    </div>
+
+    <!-- Contenedor principal -->
+    <div class="container">
+        <!-- Panel izquierdo: Añadir jugadores -->
+        <div class="panel left-panel">
+            <h2>Añadir Jugadores</h2>
+            <div class="form-group">
+                <label for="player-name">Nombre del Jugador:</label>
+                <input type="text" id="player-name" placeholder="Nombre">
+            </div>
+            <div class="form-group">
+                <label for="player-rating">Nota del Jugador (1-10):</label>
+                <input type="number" id="player-rating" min="1" max="10" placeholder="Nota" required>
+            </div>
+            <div class="form-group">
+                <button id="add-player">Añadir Jugador</button>
+            </div>
+        </div>
+
+        <!-- Panel derecho: Lista de jugadores y generar equipos -->
+        <div class="panel right-panel">
+            <h2>Jugadores Añadidos</h2>
+            <ul class="player-list" id="player-list"></ul>
+            <div class="generate-teams">
+                <button id="generate-teams" disabled>Generar Equipos</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Push-up para mostrar los equipos -->
+    <div class="overlay" id="overlay"></div>
+    <div class="push-up" id="push-up">
+        <h3>Equipos Generados</h3>
+        <div class="teams-container" id="teams-container"></div>
+        <div class="share-button">
+            <button id="share-button">Compartir</button>
+        </div>
+    </div>
+
+    <!-- Pop-up para compartir -->
+    <div class="share-popup" id="share-popup">
+        <h3>Lista de Equipos</h3>
+        <div class="share-content" id="share-content"></div>
+        <div class="close-button">
+            <button id="close-share-popup">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- Enlace al JavaScript -->
+    <script>
+        // Array para almacenar los jugadores
+        let players = [];
+
+        // Función para añadir un jugador
+        document.getElementById('add-player').addEventListener('click', function() {
+            const playerName = document.getElementById('player-name').value;
+            const playerRating = document.getElementById('player-rating').value;
+
+            if (playerName && playerRating) {
+                players.push({ name: playerName, rating: parseInt(playerRating) });
+                updatePlayerList();
+                document.getElementById('player-name').value = '';
+                document.getElementById('player-rating').value = '';
+            } else {
+                alert('Por favor, completa todos los campos.');
+            }
+        });
+
+        // Función para actualizar la lista de jugadores
+        function updatePlayerList() {
+            const playerList = document.getElementById('player-list');
+            playerList.innerHTML = '';
+
+            players.forEach((player, index) => {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <span>${player.name} (Nota: ${player.rating})</span>
+                    <div class="actions">
+                        <i class="fas fa-pencil" onclick="editPlayer(${index})"></i>
+                        <i class="fas fa-times" onclick="removePlayer(${index})"></i>
+                    </div>
+                `;
+                playerList.appendChild(li);
+            });
+
+            // Habilitar o deshabilitar el botón de generar equipos
+            document.getElementById('generate-teams').disabled = players.length < 14;
+        }
+
+        // Función para eliminar un jugador
+        function removePlayer(index) {
+            players.splice(index, 1);
+            updatePlayerList();
+        }
+
+        // Función para editar un jugador
+        function editPlayer(index) {
+            const player = players[index];
+            const newName = prompt('Editar nombre:', player.name);
+            const newRating = prompt('Editar nota (1-10):', player.rating);
+
+            if (newName && newRating) {
+                players[index] = { name: newName, rating: parseInt(newRating) };
+                updatePlayerList();
+            }
+        }
+
+        // Función para generar equipos equilibrados
+        function generateBalancedTeams() {
+            let numTeams;
+
+            // Definir el número de equipos según la cantidad de jugadores
+            if (players.length >= 14 && players.length <= 20) {
+                numTeams = 2; // Generar 2 equipos
+            } else if (players.length >= 21 && players.length <= 28) {
+                numTeams = 3; // Generar 3 equipos
+            } else if (players.length > 29) {
+                numTeams = 4; // Generar 4 equipos
+            } else {
+                alert('Se requieren al menos 14 jugadores para generar los equipos.');
+                return;
+            }
+
+            const sortedPlayers = [...players].sort((a, b) => b.rating - a.rating); // Ordenar por nota
+            const teams = Array.from({ length: numTeams }, () => []); // Crear equipos vacíos
+
+            // Distribuir jugadores en equipos
+            sortedPlayers.forEach((player, index) => {
+                teams[index % numTeams].push(player);
+            });
+
+            return teams;
+        }
+
+        // Función para generar equipos
+        document.getElementById('generate-teams').addEventListener('click', function() {
+            if (players.length >= 14) { // Verifica que haya al menos 14 jugadores
+                const teams = generateBalancedTeams();
+                const teamsContainer = document.getElementById('teams-container');
+                teamsContainer.innerHTML = '';
+
+                teams.forEach((team, index) => {
+                    const teamDiv = document.createElement('div');
+                    teamDiv.className = 'team';
+                    teamDiv.innerHTML = `
+                        <h3>Equipo ${index + 1}</h3>
+                        <ul>
+                            ${team.map(player => `<li>${player.name} (Nota: ${player.rating})</li>`).join('')}
+                        </ul>
+                    `;
+                    teamsContainer.appendChild(teamDiv);
+                });
+
+                // Mostrar el push-up y el overlay
+                document.getElementById('push-up').style.display = 'block';
+                document.getElementById('overlay').style.display = 'block';
+            } else {
+                alert('Se requieren al menos 14 jugadores para generar los equipos.');
+            }
+        });
+
+        // Función para mostrar el pop-up de compartir
+        document.getElementById('share-button').addEventListener('click', function() {
+            const teams = generateBalancedTeams();
+            const shareContent = document.getElementById('share-content');
+            shareContent.innerHTML = '';
+
+            teams.forEach((team, index) => {
+                const teamDiv = document.createElement('div');
+                teamDiv.innerHTML = `
+                    <h4>Equipo ${index + 1}</h4>
+                    <ul>
+                        ${team.map(player => `<li>${player.name}</li>`).join('')}
+                    </ul>
+                `;
+                shareContent.appendChild(teamDiv);
+            });
+
+            // Mostrar el pop-up de compartir
+            document.getElementById('share-popup').style.display = 'block';
+        });
+
+        // Cerrar el pop-up de compartir
+        document.getElementById('close-share-popup').addEventListener('click', function() {
+            document.getElementById('share-popup').style.display = 'none';
+        });
+
+        // Cerrar el push-up al hacer clic en el overlay
+        document.getElementById('overlay').addEventListener('click', function() {
+            document.getElementById('push-up').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
+        });
+    </script>
+</body>
+</html>
