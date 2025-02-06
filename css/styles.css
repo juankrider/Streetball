@@ -17,7 +17,7 @@ body {
 /* Título principal */
 .title {
     font-size: clamp(8vw, 12vw, 15vw); /* Ajuste dinámico del tamaño */
-    color: white; /* Asegura que el color sea blanco */
+    color: rgb(194, 42, 42); /* Asegura que el color sea blanco */
     font-weight: bold; /* Asegura que el texto esté en negrita */
     white-space: nowrap; /* Evita que se corte */
     overflow: visible;
