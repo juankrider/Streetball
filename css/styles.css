@@ -153,6 +153,7 @@ body.seven-hover {
     background-color: transparent;  /* El fondo se gestiona en .cookie-banner */
     flex: 1;  /* El texto ocupa todo el espacio disponible */
     text-align: left;
+    font-size: 16px; /* Aumenta el tamaño de la letra */
 }
 
 /* Botón de "Aceptar" */
