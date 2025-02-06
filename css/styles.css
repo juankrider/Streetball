@@ -16,7 +16,7 @@ body {
 
 /* Título principal */
 .title {
-    font-size: 15vw; /* Tamaño responsive */
+    font-size: clamp(10vw, 15vw, 20vw); /* Tamaño responsive */
     font-weight: bold;
     color: white;
     transition: color 0.3s ease;
@@ -24,7 +24,7 @@ body {
 
 /* Opciones (5vs5 y 7vs7) */
 .option {
-    font-size: 12vw; /* Tamaño responsive */
+    font-size: clamp(8vw, 12vw, 16vw); /* Tamaño adaptable */
     font-weight: bold;
     text-decoration: none;
     display: block;
@@ -142,5 +142,43 @@ body.seven-hover {
     .five:hover, body.five-hover .five,
     .seven:hover, body.seven-hover .seven {
         font-size: 22vw; /* Tamaño aún más grande en pantallas muy pequeñas al hacer hover */
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        align-items: center;
+        padding-left: 0; /* Evitar margen extra */
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .five:hover, body.five-hover .five,
+    .seven:hover, body.seven-hover .seven {
+        font-size: 16vw; /* Mantenerlo igual al original */
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        width: 60px; /* Reducir tamaño */
+        top: 10px; 
+        right: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu {
+        bottom: 10px;
+        right: 10px;
+    }
+
+    .menu-icon {
+        font-size: 24px; /* Reducir tamaño */
+    }
+
+    .menu-content {
+        width: 150px; /* Mejor ajuste para móviles */
     }
 }
