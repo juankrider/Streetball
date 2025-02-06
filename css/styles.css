@@ -122,22 +122,25 @@ body.seven-hover {
 /* Estilo para el aviso de cookies */
 .cookie-banner {
     position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #333;
+    bottom: 10px;  /* Lo posicionamos 10px desde abajo */
+    left: 50%;     /* Centrado horizontal */
+    transform: translateX(-50%);  /* Asegura que esté centrado */
+    background-color: rgba(0, 0, 0, 0.8);  /* Fondo oscuro, pero translúcido */
     color: white;
     text-align: center;
-    padding: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;  /* Bordes redondeados */
     font-size: 14px;
     z-index: 1000;
     display: none; /* Oculto por defecto */
+    width: auto;
+    max-width: 90%; /* Para que no se desborde en pantallas pequeñas */
+    box-sizing: border-box; /* Para incluir el padding en el ancho total */
 }
 
 .cookie-banner p {
     margin: 0;
     display: inline-block;
-    padding-right: 15px;
 }
 
 .cookie-banner a {
@@ -159,6 +162,13 @@ body.seven-hover {
 .accept-cookies:hover {
     background-color: #ff9900;
 }
+
+/* Si quieres que el banner desaparezca con un pequeño desvanecimiento */
+.cookie-banner.fade {
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+}
+
 
 
 /* Media queries para ajustes en pantallas más pequeñas */
