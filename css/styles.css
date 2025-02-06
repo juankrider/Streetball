@@ -144,7 +144,7 @@ body.seven-hover {
 
 /* El contenedor del texto */
 .cookie-text {
-    background-color: rgba(0, 0, 0, 0.8);  /* Fondo oscuro para la parte de texto */
+    background-color: rgb(0, 0, 0);  /* Fondo oscuro para la parte de texto */
     color: white;
     padding: 10px 20px; /* Añadimos algo de espacio al texto */
     border-radius: 5px 5px 0 0; /* Bordes redondeados en la parte superior */
@@ -174,7 +174,7 @@ body.seven-hover {
 
 /* Desvanecimiento opcional */
 .cookie-banner.fade {
-    opacity: 0;
+    opacity: 80;
     transition: opacity 0.5s ease-out;
 }
 
