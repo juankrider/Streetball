@@ -148,7 +148,7 @@ body.seven-hover {
 
 /* Estilo para el texto en el banner */
 .cookie-text {
-    padding: 0 10px; /* Menos espacio al texto */
+    padding: 0 12px; /* Menos espacio al texto */
     border-radius: 5px;
     background-color: transparent;  /* El fondo se gestiona en .cookie-banner */
     flex: 1;  /* El texto ocupa todo el espacio disponible */
