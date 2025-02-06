@@ -16,10 +16,9 @@ body {
 
 /* Título principal */
 .title {
-    font-size: clamp(8vw, 12vw, 15vw); /* Ajuste del tamaño del texto según la pantalla */
-    color: white; /* Color original */
-    font-weight: bold; /* Mantener negrita */
-    font-family: Arial, sans-serif; /* Tipografía original */
+    font-size: clamp(8vw, 12vw, 15vw); /* Ajuste dinámico del tamaño */
+    color: white; /* Asegura que el color sea blanco */
+    font-weight: bold; /* Asegura que el texto esté en negrita */
     white-space: nowrap; /* Evita que se corte */
     overflow: visible;
     max-width: 90vw; /* Para que no se salga de la pantalla */
