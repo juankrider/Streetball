@@ -137,23 +137,18 @@ body.seven-hover {
     max-width: 90%; /* Para que no se desborde en pantallas pequeñas */
     box-sizing: border-box; /* Para incluir el padding en el ancho total */
     text-align: center;
-    padding: 10px 0; /* Espaciado general */
+    padding: 10px 20px; /* Añadimos algo de espacio */
     border-radius: 5px; /* Bordes redondeados */
-    background-color: transparent; /* Fondo transparente para el contenedor principal */
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro con transparencia */
+    color: white; /* Asegura que el texto sea blanco */
+    font-size: 16px; /* Tamaño del texto */
 }
 
 /* El contenedor del texto */
 .cookie-text {
-    background-color: rgb(0, 0, 0);  /* Fondo oscuro para la parte de texto */
-    color: white;
     padding: 10px 20px; /* Añadimos algo de espacio al texto */
     border-radius: 5px 5px 0 0; /* Bordes redondeados en la parte superior */
-}
-
-/* Enlaces en el aviso */
-.cookie-banner a {
-    color: #ffcc00;
-    text-decoration: none;
+    background-color: transparent;  /* El fondo ya lo gestionamos desde .cookie-banner */
 }
 
 /* Botón de "Aceptar" */
@@ -172,11 +167,6 @@ body.seven-hover {
     background-color: #ff9900;
 }
 
-/* Desvanecimiento opcional */
-.cookie-banner.fade {
-    opacity: 80;
-    transition: opacity 0.5s ease-out;
-}
 
 /* Media queries para ajustes en pantallas más pequeñas */
 @media (max-width: 768px) {
