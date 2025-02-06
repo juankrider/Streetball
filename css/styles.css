@@ -136,7 +136,7 @@ body.seven-hover {
     max-width: 90%; /* Para que no se desborde en pantallas pequeñas */
     box-sizing: border-box; /* Para incluir el padding en el ancho total */
     text-align: center;
-    padding: 10px 20px; /* Menos espacio para hacerlo más pequeño */
+    padding: 12px 24px; /* Menos espacio para hacerlo más pequeño */
     border-radius: 5px; /* Bordes redondeados */
     background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro */
     color: white; /* Texto blanco */
