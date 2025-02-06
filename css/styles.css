@@ -133,22 +133,26 @@ body.seven-hover {
     transform: translateX(-50%);  /* Asegura que esté centrado */
     display: none; /* Oculto por defecto */
     z-index: 1000;
-    width: auto;
     max-width: 90%; /* Para que no se desborde en pantallas pequeñas */
     box-sizing: border-box; /* Para incluir el padding en el ancho total */
     text-align: center;
-    padding: 10px 20px; /* Añadimos algo de espacio */
+    padding: 10px 20px; /* Menos espacio para hacerlo más pequeño */
     border-radius: 5px; /* Bordes redondeados */
-    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro con transparencia */
-    color: white; /* Asegura que el texto sea blanco */
-    font-size: 16px; /* Tamaño del texto */
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro */
+    color: white; /* Texto blanco */
+    font-size: 12px; /* Reducir tamaño de texto */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* El contenedor del texto */
+/* Estilo para el texto en el banner */
 .cookie-text {
-    padding: 10px 20px; /* Añadimos algo de espacio al texto */
-    border-radius: 5px 5px 0 0; /* Bordes redondeados en la parte superior */
-    background-color: transparent;  /* El fondo ya lo gestionamos desde .cookie-banner */
+    padding: 0 10px; /* Menos espacio al texto */
+    border-radius: 5px;
+    background-color: transparent;  /* El fondo se gestiona en .cookie-banner */
+    flex: 1;  /* El texto ocupa todo el espacio disponible */
+    text-align: left;
 }
 
 /* Botón de "Aceptar" */
@@ -156,17 +160,34 @@ body.seven-hover {
     background-color: #ffcc00;
     color: black;
     border: none;
-    padding: 5px 15px;
+    padding: 5px 10px; /* Menos espacio en el botón */
     cursor: pointer;
     font-weight: bold;
-    margin-top: 10px;
     border-radius: 3px;
+    font-size: 12px; /* Reducir tamaño del botón */
 }
 
 .accept-cookies:hover {
     background-color: #ff9900;
 }
 
+/* Enlace de cookies (Leer más) */
+.cookie-banner a {
+    color: #ffcc00;
+    text-decoration: none;
+    font-size: 12px; /* El mismo tamaño que el botón */
+}
+
+.cookie-banner a:hover {
+    color: #ff9900;
+}
+
+/* Botón y enlace en una sola línea */
+.cookie-banner a,
+.accept-cookies {
+    display: inline-block;
+    margin-top: 0;
+}
 
 /* Media queries para ajustes en pantallas más pequeñas */
 @media (max-width: 768px) {
