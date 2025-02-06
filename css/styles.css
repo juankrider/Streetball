@@ -140,7 +140,7 @@ body.seven-hover {
     border-radius: 5px; /* Bordes redondeados */
     background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro */
     color: white; /* Texto blanco */
-    font-size: 12px; /* Reducir tamaño de texto */
+    font-size: 14px; /* Reducir tamaño de texto */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -148,12 +148,11 @@ body.seven-hover {
 
 /* Estilo para el texto en el banner */
 .cookie-text {
-    padding: 0 12px; /* Menos espacio al texto */
+    padding: 0 10px; /* Menos espacio al texto */
     border-radius: 5px;
     background-color: transparent;  /* El fondo se gestiona en .cookie-banner */
     flex: 1;  /* El texto ocupa todo el espacio disponible */
     text-align: left;
-    font-size: 16px; /* Aumenta el tamaño de la letra */
 }
 
 /* Botón de "Aceptar" */
