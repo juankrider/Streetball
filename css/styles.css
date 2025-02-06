@@ -58,6 +58,7 @@ body {
     z-index: 2; /* Se pone por encima del otro texto */
 }
 
+
 .five:hover ~ .title, body.five-hover .title,
 .five:hover ~ .seven, body.five-hover .seven {
     color: #444;
@@ -95,13 +96,13 @@ body.seven-hover {
 /* Menú desplegable */
 .menu {
     position: fixed;
-    bottom: 40px;
-    right: 40px;
+    bottom: 20px;
+    right: 20px;
     z-index: 1000;
 }
 
 .menu-icon {
-    font-size: 50px; /* Tamaño fijo */
+    font-size: 30px; /* Tamaño fijo */
     cursor: pointer;
     color: white;
 }
