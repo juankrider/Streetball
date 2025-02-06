@@ -17,6 +17,9 @@ body {
 /* Título principal */
 .title {
     font-size: clamp(8vw, 12vw, 15vw); /* Ajuste del tamaño del texto según la pantalla */
+    color: white; /* Color original */
+    font-weight: bold; /* Mantener negrita */
+    font-family: Arial, sans-serif; /* Tipografía original */
     white-space: nowrap; /* Evita que se corte */
     overflow: visible;
     max-width: 90vw; /* Para que no se salga de la pantalla */
@@ -127,6 +130,8 @@ body.seven-hover {
 
     .title {
         font-size: clamp(12vw, 15vw, 18vw); /* Ajuste más pequeño en móviles */
+        color: white; /* Asegura que el color sea blanco */
+        font-weight: bold; /* Mantiene negrita */
     }
 
     .option {
@@ -142,6 +147,8 @@ body.seven-hover {
 @media (max-width: 480px) {
     .title {
         font-size: clamp(15vw, 18vw, 22vw); /* Tamaño aún más pequeño */
+        color: white; /* Asegura que el color sea blanco */
+        font-weight: bold; /* Mantiene negrita */
     }
 
     .option {
