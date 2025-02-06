@@ -23,12 +23,6 @@ body {
     overflow: visible;
     max-width: 90vw; /* Para que no se salga de la pantalla */
     text-align: left; /* Alineado a la izquierda */
-    transition: color 0.3s ease; /* Animación suave al cambiar de color */
-}
-
-/* Efecto hover sobre el texto de Streetball */
-.title:hover {
-    color: #ff9900; /* Cambio de color al pasar el cursor */
 }
 
 /* Opciones (5vs5 y 7vs7) */
