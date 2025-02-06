@@ -16,13 +16,11 @@ body {
 
 /* Título principal */
 .title {
-    font-size: clamp(8vw, 12vw, 15vw); /* Tamaño responsive */
-    font-weight: bold;
-    color: white;
-    transition: color 0.3s ease;
-    white-space: nowrap; /* Evita que la palabra se divida en dos líneas */
-    overflow: visible; /* Asegura que el texto no se corte */
-    max-width: 90vw; /* Evita que se desborde de la pantalla */
+    font-size: clamp(8vw, 12vw, 15vw);
+    white-space: nowrap; /* Evita que se corte */
+    overflow: visible;
+    max-width: 90vw; /* Para que no se salga de la pantalla */
+    text-align: left; /* Alineado a la izquierda */
 }
 
 /* Opciones (5vs5 y 7vs7) */
@@ -150,9 +148,9 @@ body.seven-hover {
 
 @media (max-width: 768px) {
     body {
-        align-items: center;
-        padding-left: 0; /* Evitar margen extra */
-        text-align: center;
+        align-items: flex-start;
+        text-align: left;
+        padding-left: 5vw; /* Mantiene margen izquierdo */
     }
 }
 
