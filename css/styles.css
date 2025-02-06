@@ -45,14 +45,19 @@ body {
     transition: color 0.3s ease;
 }
 
+.five, .seven {
+    display: inline-block; /* Asegura que el tamaño del contenedor no cambie */
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
 .five:hover, body.five-hover .five {
     color: #444;
-    font-size: 14vw; /* Tamaño responsive al hacer hover */
+    transform: scale(1.2); /* Aumenta de tamaño sin afectar al resto */
 }
 
 .seven:hover, body.seven-hover .seven {
     color: white;
-    font-size: 14vw; /* Tamaño responsive al hacer hover */
+    transform: scale(1.2); /* Aumenta de tamaño sin afectar al resto */
 }
 
 .five:hover ~ .title, body.five-hover .title,
