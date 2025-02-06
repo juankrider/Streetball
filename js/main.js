@@ -18,4 +18,17 @@ document.addEventListener("DOMContentLoaded", function() {
     seven.addEventListener("mouseleave", function() {
         body.classList.remove("seven-hover");
     });
+    
+// Comprobar si el usuario ya aceptó las cookies
+if (!localStorage.getItem("cookiesAccepted")) {
+    document.getElementById("cookie-banner").style.display = "block"; // Mostrar el banner
+}
+
+// Al hacer clic en "Aceptar"
+document.getElementById("accept-cookies").addEventListener("click", function() {
+    localStorage.setItem("cookiesAccepted", "true"); // Guardar la aceptación en el almacenamiento local
+    document.getElementById("cookie-banner").style.display = "none"; // Ocultar el banner
+});
+
+
 });

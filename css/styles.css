@@ -119,6 +119,48 @@ body.seven-hover {
     display: block;
 }
 
+/* Estilo para el aviso de cookies */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    z-index: 1000;
+    display: none; /* Oculto por defecto */
+}
+
+.cookie-banner p {
+    margin: 0;
+    display: inline-block;
+    padding-right: 15px;
+}
+
+.cookie-banner a {
+    color: #ffcc00;
+    text-decoration: none;
+}
+
+.accept-cookies {
+    background-color: #ffcc00;
+    color: black;
+    border: none;
+    padding: 5px 15px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 10px;
+    border-radius: 3px;
+}
+
+.accept-cookies:hover {
+    background-color: #ff9900;
+}
+
+
 /* Media queries para ajustes en pantallas más pequeñas */
 @media (max-width: 768px) {
     body {
