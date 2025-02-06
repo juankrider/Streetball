@@ -140,7 +140,7 @@ body.seven-hover {
     border-radius: 5px; /* Bordes redondeados */
     background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro */
     color: white; /* Texto blanco */
-    font-size: 14px; /* Reducir tamaño de texto */
+    font-size: 12.5px; /* Reducir tamaño de texto */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -164,7 +164,7 @@ body.seven-hover {
     cursor: pointer;
     font-weight: bold;
     border-radius: 3px;
-    font-size: 12px; /* Reducir tamaño del botón */
+    font-size: 13px; /* Reducir tamaño del botón */
 }
 
 .accept-cookies:hover {
