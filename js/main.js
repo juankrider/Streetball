@@ -19,17 +19,17 @@ document.addEventListener("DOMContentLoaded", function() {
         body.classList.remove("seven-hover");
     });
 
-    // Comprobar si el usuario ya aceptó las cookies
-    if (!localStorage.getItem("cookiesAccepted")) {
-        document.getElementById("cookie-banner").style.display = "block"; // Mostrar el banner
-    }
-
-    // Al hacer clic en "Aceptar"
-    document.getElementById("accept-cookies").addEventListener("click", function() {
-        localStorage.setItem("cookiesAccepted", "true"); // Guardar la aceptación en el almacenamiento local
-        document.getElementById("cookie-banner").classList.add("fade"); // Añadir la clase fade para desvanecer
-        setTimeout(function() {
-            document.getElementById("cookie-banner").style.display = "none"; // Ocultar después de la animación
-        }, 500); // Tiempo de desvanecimiento (500ms)
+    document.addEventListener("DOMContentLoaded", function() {
+        // Mostrar el banner si aún no se ha aceptado
+        if (!localStorage.getItem("cookiesAccepted")) {
+            document.getElementById("cookie-banner").style.display = "block";
+        }
+    
+        // Al hacer clic en "Aceptar"
+        document.getElementById("accept-cookies").addEventListener("click", function() {
+            localStorage.setItem("cookiesAccepted", "true"); // Guardar la aceptación
+            document.getElementById("cookie-banner").style.display = "none"; // Ocultar el banner
+        });
     });
+    
 });
