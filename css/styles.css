@@ -95,13 +95,13 @@ body.seven-hover {
 /* Menú desplegable */
 .menu {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 40px;
+    right: 40px;
     z-index: 1000;
 }
 
 .menu-icon {
-    font-size: 30px; /* Tamaño fijo */
+    font-size: 50px; /* Tamaño fijo */
     cursor: pointer;
     color: white;
 }
