@@ -46,18 +46,16 @@ body {
 }
 
 .five, .seven {
-    display: inline-block; /* Asegura que el tamaño del contenedor no cambie */
+    display: inline-block;
     transition: transform 0.3s ease, color 0.3s ease;
+    position: relative; /* Permite que se solapen sin mover otros elementos */
+    z-index: 1; /* Asegura que el texto esté por encima */
 }
 
-.five:hover, body.five-hover .five {
-    color: #444;
-    transform: scale(1.2); /* Aumenta de tamaño sin afectar al resto */
-}
-
+.five:hover, body.five-hover .five,
 .seven:hover, body.seven-hover .seven {
-    color: white;
-    transform: scale(1.2); /* Aumenta de tamaño sin afectar al resto */
+    transform: scale(1.2); /* Aumenta el tamaño sin cambiar el layout */
+    z-index: 2; /* Se pone por encima del otro texto */
 }
 
 .five:hover ~ .title, body.five-hover .title,
