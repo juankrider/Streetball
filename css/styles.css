@@ -4,7 +4,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    height: 100vh;
+    min-height: 100vh;
     background-color: #b1ada4;
     font-family: Arial, sans-serif;
     text-align: left;
@@ -16,12 +16,13 @@ body {
 
 /* Título principal */
 .title {
-    font-size: clamp(8vw, 12vw, 15vw); /* Ajuste dinámico del tamaño */
+    font-size: clamp(8vw, 16vw, 20vw); /* Ajuste dinámico del tamaño */
     color: rgb(255, 255, 255); /* Asegura que el color sea blanco */
     font-weight: bold; /* Asegura que el texto esté en negrita */
     white-space: nowrap; /* Evita que se corte */
     overflow: visible;
     max-width: 90vw; /* Para que no se salga de la pantalla */
+    line-height: 0.9; /* Ajustar la altura de las líneas */
     text-align: left; /* Alineado a la izquierda */
     transition: color 0.3s ease; /* Animación suave al cambiar de color */
 }
@@ -30,16 +31,19 @@ body {
 .title:hover {
     color: #ff9900; /* Cambio de color al pasar el cursor */
 }
-
-/* Opciones (5vs5 y 7vs7) */
 .option {
-    font-size: clamp(8vw, 12vw, 16vw); /* Ajuste dinámico */
+    display: inline-block; /* Ajusta el tamaño al texto */
+    padding: 0; /* Elimina espacios innecesarios */
+    margin: 0; /* Evita márgenes extra */
+    line-height: 1; /* Ajusta la altura al texto */
+    font-size: clamp(10vw, 16vw, 20vw); /* Mantiene ajuste dinámico */
     font-weight: bold;
     text-decoration: none;
-    display: block;
+    position: relative;
     transition: all 0.3s ease, font-size 0.3s ease;
 }
 
+/* Hover individual */
 .five, .seven {
     color: white;
     transition: color 0.3s ease;
@@ -58,15 +62,16 @@ body {
     z-index: 2; /* Se pone por encima del otro texto */
 }
 
-
-.five:hover ~ .title, body.five-hover .title,
-.five:hover ~ .seven, body.five-hover .seven {
-    color: #444;
+body.five-hover .title,
+body.five-hover .five,
+body.five-hover .seven {
+    color: #444; /* Gris cuando el fondo es blanco */
 }
 
-.seven:hover ~ .title, body.seven-hover .title,
-.seven:hover ~ .five, body.seven-hover .five {
-    color: white;
+body.seven-hover .title,
+body.seven-hover .five,
+body.seven-hover .seven {
+    color: white; /* Blanco cuando el fondo es negro */
 }
 
 /* Cambios de fondo al hacer hover */
@@ -76,6 +81,7 @@ body.five-hover {
 
 body.seven-hover {
     background-color: black;
+    overflow: hidden; /* Evita que el hover genere scroll */
 }
 
 /* Logo */
@@ -192,6 +198,39 @@ body.seven-hover {
     display: inline-block;
     margin-top: 0;
 }
+
+/* Footer */
+.footer {
+    background-color: #111;
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+    width: 100%; /* Asegura que el footer ocupe todo el ancho */
+    position: relative;
+    bottom: 0; /* Lo coloca al final del contenido */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Ajustar el contenedor para asegurar que haya suficiente espacio */
+body {
+    margin-bottom: 80px; /* Espacio para el footer */
+    min-height: 100vh; /* Garantiza que la altura de la página sea suficiente para hacer scroll */
+}
+
+/* Mostrar el footer cuando el usuario llegue al final de la página */
+body.scrolled footer {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Para evitar que el footer se oculte detrás de otros elementos */
+footer {
+    position: relative;
+    z-index: 1;
+}
+
 
 /* Media queries para ajustes en pantallas más pequeñas */
 @media (max-width: 768px) {
