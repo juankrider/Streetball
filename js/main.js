@@ -32,15 +32,9 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
     
-    window.onscroll = function() {
-        let scrollPosition = window.scrollY + window.innerHeight;
-        let documentHeight = document.documentElement.scrollHeight;
-
-        if (scrollPosition >= documentHeight) {
-            document.body.classList.add('scrolled');
-        } else {
-            document.body.classList.remove('scrolled');
-        }
-    };
+    document.addEventListener("DOMContentLoaded", function () {
+        let streetBallHeight = document.querySelector(".streetball").offsetHeight;
+        document.querySelector(".footer").style.height = streetBallHeight + "px";
+    });    
 
 });

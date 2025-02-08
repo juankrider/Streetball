@@ -203,32 +203,10 @@ body.seven-hover {
 .footer {
     background-color: #111;
     color: white;
-    padding: 40px 0;
     text-align: center;
-    width: 100%; /* Asegura que el footer ocupe todo el ancho */
-    position: relative;
-    bottom: 0; /* Lo coloca al final del contenido */
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
-}
-
-/* Ajustar el contenedor para asegurar que haya suficiente espacio */
-body {
-    margin-bottom: 80px; /* Espacio para el footer */
-    min-height: 100vh; /* Garantiza que la altura de la página sea suficiente para hacer scroll */
-}
-
-/* Mostrar el footer cuando el usuario llegue al final de la página */
-body.scrolled footer {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* Para evitar que el footer se oculte detrás de otros elementos */
-footer {
-    position: relative;
-    z-index: 1;
+    width: 100%;
+    padding: 20px 0;
+    position: relative; /* Lo mantenemos dentro del flujo normal */
 }
 
 
