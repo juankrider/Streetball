@@ -5,11 +5,11 @@ body {
     justify-content: center;
     align-items: flex-start;
     min-height: 100vh;
-    background-color: #b1ada4;
+    background-color: #acaaa6;
     font-family: Arial, sans-serif;
     text-align: left;
-    margin: 0;
-    padding-left: 5vw;
+    margin: 0px;
+    padding-left: 0vw;
     transition: background-color 0.3s ease, color 0.3s ease;
     position: relative;
 }
@@ -25,6 +25,8 @@ body {
     line-height: 0.9; /* Ajustar la altura de las líneas */
     text-align: left; /* Alineado a la izquierda */
     transition: color 0.3s ease; /* Animación suave al cambiar de color */
+    padding: 1vw;
+    padding-left: 5vw;
 }
 
 /* Efecto hover sobre el texto de Streetball */
@@ -33,7 +35,7 @@ body {
 }
 .option {
     display: inline-block; /* Ajusta el tamaño al texto */
-    padding: 0; /* Elimina espacios innecesarios */
+    padding: 1; /* Elimina espacios innecesarios */
     margin: 0; /* Evita márgenes extra */
     line-height: 1; /* Ajusta la altura al texto */
     font-size: clamp(10vw, 16vw, 20vw); /* Mantiene ajuste dinámico */
@@ -41,6 +43,7 @@ body {
     text-decoration: none;
     position: relative;
     transition: all 0.3s ease, font-size 0.3s ease;
+
 }
 
 /* Hover individual */
@@ -204,11 +207,95 @@ body.seven-hover {
     background-color: #111;
     color: white;
     text-align: center;
-    width: 100%;
-    padding: 20px 0;
+    width: 100%; /* Asegura que ocupe todo el ancho del contenedor */
+    padding: 0px 0; /* Ajustar el padding */
     position: relative; /* Lo mantenemos dentro del flujo normal */
+    margin: 0; /* Elimina cualquier margen */
+    box-sizing: border-box; /* Incluye el padding y el borde en el ancho total */
+    font-family: 'Roboto', sans-serif; /* Cambiar la tipografía */
 }
 
+.footer-container {
+    display: flex;
+    justify-content: space-around; /* Distribuir las secciones equitativamente */
+    flex-wrap: wrap; /* Permitir que las secciones se envuelvan en pantallas pequeñas */
+    max-width: 1200px;
+    margin: auto;
+}
+
+.footer-section {
+    flex: 1; /* Permitir que cada sección ocupe el mismo espacio */
+    margin: 10px; /* Reducir el margen */
+    min-width: 200px; /* Asegurar un ancho mínimo para cada sección */
+}
+
+.footer-section h3 {
+    font-size: 16px; /* Ajustar el tamaño de fuente */
+    margin-bottom: 10px; /* Reducir el margen inferior */
+}
+
+.footer-section ul {
+    list-style: none; /* Eliminar los puntos de la lista */
+    padding: 0; /* Eliminar el padding */
+}
+
+.footer-section ul li {
+    margin-bottom: 5px; /* Espacio entre los elementos de la lista */
+}
+
+.footer-section ul li a {
+    color: white; /* Color del texto */
+    text-decoration: none; /* Eliminar subrayado */
+    font-size: 13px; /* Ajustar el tamaño de fuente */
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline; /* Subrayar al pasar el ratón */
+}
+
+/* Nueva sección para el copyright y el logo */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between; /* Distribuir los elementos a los extremos */
+    align-items: center; /* Alinear verticalmente al centro */
+    padding: 5px 0; /* Ajustar el padding */
+    border-top: 1px solid #44444400; /* Añadir una línea superior */
+}
+
+.footer-bottom .copyright {
+    margin-left: 20px; /* Espacio a la izquierda */
+    font-size: 12px; /* Ajustar el tamaño de fuente */
+}
+
+.footer-bottom .logo-container {
+    display: flex;
+    align-items: center;
+    margin-right: 60px; /* Espacio a la derecha */
+    font-size: 12px; /* Ajustar el tamaño de fuente */
+}
+
+.footer-bottom .logo-container img {
+    height: 40px; /* Ajustar el tamaño del logo */
+    margin-left: 10px; /* Espacio entre el texto y el logo */
+}
+
+/* Asegúrate de que el body no tenga padding o margen */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Asegura que el body ocupe al menos el 100% de la altura de la ventana */
+}
+
+main {
+    flex: 1; /* Permite que el contenido principal ocupe el espacio disponible */
+}
+
+/* Añadir padding a los elementos superiores */
+.logo, .title, .option {
+    padding-left: 35px; /* Ajustar el padding según sea necesario */
+}
 
 /* Media queries para ajustes en pantallas más pequeñas */
 @media (max-width: 768px) {
