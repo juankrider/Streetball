@@ -36,5 +36,13 @@ document.addEventListener("DOMContentLoaded", function() {
         let streetBallHeight = document.querySelector(".streetball").offsetHeight;
         document.querySelector(".footer").style.height = streetBallHeight + "px";
     });    
-
+    
+document.addEventListener('DOMContentLoaded', function() {
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => {
+        section.addEventListener('click', function() {
+            sections.forEach(s => s.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
 });
