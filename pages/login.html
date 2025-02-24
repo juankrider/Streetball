@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - StreetBall</title>
+    <link rel="stylesheet" href="../css/styles.css"> <!-- Enlace al CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos específicos para el login */
+        .login-container {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            width: 300px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+        }
+
+        /* Inputs */
+        .login-container input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            display: block;
+        }
+
+        /* Botón de acceso (naranja) */
+        .login-btn {
+            background: #ff9800;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .login-btn:hover {
+            background: #e68900;
+        }
+
+        /* Botones de redes sociales */
+        .social-login {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .social-btn {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .social-btn img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .social-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 2px 10px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Botón de registro (también en naranja) */
+        .register-btn {
+            background: #ff9800;
+            color: white;
+            border: none;
+            padding:8px;
+            width: 60%;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 0px;
+        }
+
+        .register-btn:hover {
+            background: #e68900;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Logo con enlace a inicio -->
+        <img src="../images/logo.png" alt="StreetBall Logo" class="logo">
+        </a>
+        <!-- Título principal -->
+        <div class="title">StreetBall</div>
+    </header>
+
+    <main>
+        <div class="login-container">
+            <h2>Fichar</h2>
+            
+            <input type="text" placeholder="Usuario" required>
+            <input type="password" placeholder="Contraseña" required>
+            
+            <button class="login-btn">Acceder</button>
+            
+            <div class="social-login">
+                <button class="social-btn">
+                    <img src="../images/google-icon.png" alt="Google">
+                </button>
+                <button class="social-btn">
+                    <img src="../images/apple-icon.png" alt="Apple">
+                </button>
+                <button class="social-btn">
+                    <img src="../images/facebook-icon.png" alt="Facebook">
+                </button>
+            </div>
+        
+            <button class="register-btn">Registrarse</button>
+        </div>        
+
+        <!-- Aviso de cookies -->
+        <div id="cookie-banner" class="cookie-banner">
+            <div class="cookie-text">
+                Este sitio web usa cookies para mejorar la experiencia. <a href="#">Leer más</a>
+            </div>
+            <button id="accept-cookies" class="accept-cookies">Aceptar</button>
+        </div>
+    </main>
+
+    <!-- Enlace al JavaScript -->
+    <script src="../js/main.js"></script>
+
+    <script>
+        function login() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const errorMessage = document.getElementById("error-message");
+
+            // Usuario de prueba (debe ser reemplazado por un sistema real)
+            const validUser = "admin";
+            const validPass = "1234";
+
+            if (username === validUser && password === validPass) {
+                sessionStorage.setItem("loggedIn", "true");
+                window.location.href = "../index.html"; // Redirige a la página principal
+            } else {
+                errorMessage.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>

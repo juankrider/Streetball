@@ -19,25 +19,20 @@ document.addEventListener("DOMContentLoaded", function() {
         body.classList.remove("seven-hover");
     });
 
-    document.addEventListener("DOMContentLoaded", function() {
-        // Mostrar el banner si aún no se ha aceptado
-        if (!localStorage.getItem("cookiesAccepted")) {
-            document.getElementById("cookie-banner").style.display = "block";
-        }
-    
-        // Al hacer clic en "Aceptar"
-        document.getElementById("accept-cookies").addEventListener("click", function() {
-            localStorage.setItem("cookiesAccepted", "true"); // Guardar la aceptación
-            document.getElementById("cookie-banner").style.display = "none"; // Ocultar el banner
-        });
+    // Mostrar el banner si aún no se ha aceptado
+    if (!localStorage.getItem("cookiesAccepted")) {
+        document.getElementById("cookie-banner").style.display = "block";
+    }
+
+    // Al hacer clic en "Aceptar"
+    document.getElementById("accept-cookies").addEventListener("click", function() {
+        localStorage.setItem("cookiesAccepted", "true"); // Guardar la aceptación
+        document.getElementById("cookie-banner").style.display = "none"; // Ocultar el banner
     });
-    
-    document.addEventListener("DOMContentLoaded", function () {
-        let streetBallHeight = document.querySelector(".streetball").offsetHeight;
-        document.querySelector(".footer").style.height = streetBallHeight + "px";
-    });    
-    
-document.addEventListener('DOMContentLoaded', function() {
+
+    let streetBallHeight = document.querySelector(".streetball").offsetHeight;
+    document.querySelector(".footer").style.height = streetBallHeight + "px";
+
     const sections = document.querySelectorAll('.section');
     sections.forEach(section => {
         section.addEventListener('click', function() {
@@ -45,4 +40,51 @@ document.addEventListener('DOMContentLoaded', function() {
             this.classList.add('active');
         });
     });
+
+    function login() {
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+        const errorMessage = document.getElementById("error-message");
+    
+        const validUser = "admin";
+        const validPass = "1234";
+    
+        if (username === validUser && password === validPass) {
+            sessionStorage.setItem("loggedIn", "true");
+            window.location.href = "../index.html";
+        } else {
+            errorMessage.style.display = "block";
+        }
+    }
+    
+    // Iniciar sesión con Google
+    document.getElementById("google-login").addEventListener("click", function () {
+        window.location.href = "https://accounts.google.com/signin"; // URL de Google OAuth
+    });
+    
+    // Iniciar sesión con Apple
+    document.getElementById("apple-login").addEventListener("click", function () {
+        window.location.href = "https://appleid.apple.com/auth/authorize"; // URL de Apple OAuth
+    });
+    
+    // Iniciar sesión con Facebook
+    document.getElementById("facebook-login").addEventListener("click", function () {
+        window.location.href = "https://www.facebook.com/v12.0/dialog/oauth"; // URL de Facebook OAuth
+    });
+
+    function register() {
+        const username = document.getElementById("new-username").value;
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("new-password").value;
+        const errorMessage = document.getElementById("register-error");
+    
+        if (username && email && password) {
+            localStorage.setItem("user", JSON.stringify({ username, email, password }));
+            alert("Registro exitoso. Ahora puedes iniciar sesión.");
+            window.location.href = "login.html";
+        } else {
+            errorMessage.style.display = "block";
+        }
+    }
+    
 });

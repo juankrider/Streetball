@@ -336,6 +336,40 @@ main {
     display: block;
 }
 
+/* Contenedor de los botones sociales */
+.social-login {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+/* Botones de login con redes sociales */
+.social-btn {
+    width: 50px;
+    height: 50px;
+    background: white; /* Fondo blanco */
+    border: 1px solid #ddd; /* Borde suave */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Asegurar que las imágenes se ven bien */
+.social-btn img {
+    width: 50px;
+    height: 50px;
+}
+
+/* Efecto al pasar el mouse */
+.social-btn:hover {
+    transform: scale(1.2);
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
 /* Media queries para ajustes en pantallas más pequeñas */
 @media (max-width: 768px) {
     body {

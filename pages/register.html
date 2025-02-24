@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - StreetBall</title>
+    <link rel="stylesheet" href="../css/styles.css"> <!-- Enlace al CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos específicos para el login */
+        .login-container {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            width: 300px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+        }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+        }
+
+        .login-container input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .login-container button {
+            background: #ff9800;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .login-container button:hover {
+            background: #e68900;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Logo con enlace a inicio -->
+        <a href="../index.html">
+            <img src="../images/logo.png" alt="StreetBall Logo" class="logo">
+        </a>
+        <!-- Título principal -->
+        <div class="title">StreetBall</div>
+    </header>
+
+    <main>
+        <!-- Formulario de inicio de sesión -->
+        <div class="login-container">
+            <h2>Iniciar Sesión</h2>
+            <p class="error" id="error-message">Usuario o contraseña incorrectos</p>
+            <input type="text" id="username" placeholder="Usuario">
+            <input type="password" id="password" placeholder="Contraseña">
+            <button onclick="login()">Acceder</button>
+        </div>
+
+        <!-- Aviso de cookies -->
+        <div id="cookie-banner" class="cookie-banner">
+            <div class="cookie-text">
+                Este sitio web usa cookies para mejorar la experiencia. <a href="#">Leer más</a>
+            </div>
+            <button id="accept-cookies" class="accept-cookies">Aceptar</button>
+        </div>
+    </main>
+    <!-- Enlace al JavaScript -->
+    <script src="../js/main.js"></script>
+
+    <script>
+        function login() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const errorMessage = document.getElementById("error-message");
+
+            // Usuario de prueba (debe ser reemplazado por un sistema real)
+            const validUser = "admin";
+            const validPass = "1234";
+
+            if (username === validUser && password === validPass) {
+                sessionStorage.setItem("loggedIn", "true");
+                window.location.href = "../index.html"; // Redirige a la página principal
+            } else {
+                errorMessage.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
