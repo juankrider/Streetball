@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión - StreetBall</title>
-    <link rel="stylesheet" href="../css/styles.css"> <!-- Enlace al CSS -->
+    <link rel="stylesheet" href="../css/styleslogin.css"> <!-- Enlace al CSS -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Estilos específicos para el login */
@@ -97,6 +97,12 @@
             background: #e68900;
         }
 
+        /* Mensaje de error */
+        .error-message {
+            display: none;
+            color: red;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -105,17 +111,17 @@
         <img src="../images/logo.png" alt="StreetBall Logo" class="logo">
         </a>
         <!-- Título principal -->
-        <div class="title">StreetBall</div>
+        <div class="title"></div>
     </header>
 
     <main>
         <div class="login-container">
-            <h2>Fichar</h2>
+            <h2></h2>
             
-            <input type="text" placeholder="Usuario" required>
-            <input type="password" placeholder="Contraseña" required>
+            <input type="text" id="username" placeholder="Usuario" required>
+            <input type="password" id="password" placeholder="Contraseña" required>
             
-            <button class="login-btn">Acceder</button>
+            <button class="login-btn" onclick="login()">Acceder</button>
             
             <div class="social-login">
                 <button class="social-btn">
@@ -130,6 +136,8 @@
             </div>
         
             <button class="register-btn">Registrarse</button>
+
+            <div id="error-message" class="error-message">Usuario o contraseña incorrectos</div>
         </div>        
 
         <!-- Aviso de cookies -->
